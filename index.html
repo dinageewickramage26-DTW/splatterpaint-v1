@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 08 - Splatter Paint</title>
+    
+  <script src="https://unpkg.com/paper@0.11.5/dist/paper-full.min.js"></script>
+  <script type="text/paperscript" canvas="splatterPaint">
+    function onMouseMove(event) {
+      var path = new Path.Circle({
+        center: event.point,
+        radius: 10
+      });
+      path.fillColor = {
+        hue: Math.random() * 360,
+        saturation: 1,
+        brightness: 1
+      };
+    }
+  </script>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+        body {
+            background: rgb(178, 17, 81);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container{
+            background:white;
+            border-radius:20px;
+            padding:20px;
+            width:90vw;
+            height:80vh;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.279);
+            display:flex;
+            flex-direction:column;
+            margin-top:50px;
+        }
+        .canvas-wrapper{
+            flex:1;
+            border-radius:16px;
+            overflow: hidden;
+        }
+        canvas{
+            width:100%;
+            height:100%;
+            display:block;
+        }
+   
+   </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Dina's Canvas 🎨🎉</h1>
+        <div class="canvas-wrapper">
+            <canvas id="splatterPaint" resize ></canvas>
+        </div>
+    </div>
+</body>
+</html>
